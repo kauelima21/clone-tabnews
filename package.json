@@ -1,0 +1,25 @@
+{
+  "name": "clone-tabnews",
+  "version": "1.0.0",
+  "description": "Projeto de implementação do TabNews do curso curso.dev do Filipe Deschamps",
+  "main": "index.js",
+  "scripts": {
+    "dev": "next dev"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kauelima21/clone-tabnews.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/kauelima21/clone-tabnews/issues"
+  },
+  "homepage": "https://github.com/kauelima21/clone-tabnews#readme",
+  "dependencies": {
+    "next": "^13.1.6",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  }
+}
