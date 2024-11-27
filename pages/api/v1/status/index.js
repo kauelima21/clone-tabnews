@@ -19,7 +19,7 @@ async function status(request, response) {
     databaseOpenedConnectionsResult.rows[0].count;
 
   const updatedAt = new Date().toISOString();
-  response.status(200).send({
+  response.status(200).json({
     updated_at: updatedAt,
     dependencies: {
       database: {
