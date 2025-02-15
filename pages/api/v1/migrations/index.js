@@ -4,6 +4,7 @@ import database from "infra/database";
 
 export default async function migrations(request, response) {
   const allowedMethods = ["GET", "POST"];
+
   if (!allowedMethods.includes(request.method)) {
     return response.status(405).json({
       error: `Method "${request.method}" not allowed`,
@@ -26,6 +27,7 @@ export default async function migrations(request, response) {
 
     if (request.method === "GET") {
       const pendingMigrations = await migrationRunner(defaultMigrationOptions);
+
       return response.status(200).json(pendingMigrations);
     }
 
@@ -36,6 +38,7 @@ export default async function migrations(request, response) {
       });
 
       let statusCode = 200;
+
       if (migratedMigrations.length > 0) {
         statusCode = 201;
       }
@@ -44,8 +47,9 @@ export default async function migrations(request, response) {
     }
   } catch (error) {
     console.log(error);
+
     throw error;
   } finally {
-    await dbClient.end();
+    await dbClient?.end();
   }
 }
