@@ -1,6 +1,15 @@
-import { InternalServerError, MethodNotAllowedError } from "./errors";
+import {
+  InternalServerError,
+  MethodNotAllowedError,
+  ValidationError,
+  NotFoundError,
+} from "./errors";
 
 function onErrorHandler(error, _, response) {
+  if (error instanceof ValidationError || error instanceof NotFoundError) {
+    return response.status(error.statusCode).json(error);
+  }
+
   const publicErrorObject = new InternalServerError({
     statusCode: error.statusCode,
     cause: error,
